@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import "package:intl/intl.dart";
+
 import './transaction.dart';
 
 void main() => runApp(MyApp());
@@ -17,26 +19,26 @@ class MyHomePage extends StatelessWidget {
   final List<Transaction> transactions = [
     Transaction(
       id: 't1',
-      title: "New Shoes",
-      amount: 69.99,
+      title: "Flutter",
+      amount: 3.5,
       date: DateTime.now(),
     ),
     Transaction(
       id: 't2',
-      title: "rent",
-      amount: 100.99,
+      title: "Dart",
+      amount: 1,
       date: DateTime.now(),
     ),
     Transaction(
       id: 't1',
-      title: "noodle",
-      amount: 22.99,
+      title: "Work out",
+      amount: 2,
       date: DateTime.now(),
     ),
     Transaction(
       id: 't1',
-      title: "Wage",
-      amount: 32.99,
+      title: "Sleep",
+      amount: 2.5,
       date: DateTime.now(),
     )
   ];
@@ -44,10 +46,10 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("TIMER App"),
+        title: Text("TIME App"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -56,6 +58,24 @@ class MyHomePage extends StatelessWidget {
               child: Text('Chart!'),
               color: Colors.blueGrey,
               elevation: 5,
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextField(decoration: InputDecoration(labelText: "Title")),
+                  TextField(decoration: InputDecoration(labelText: "Amount")),
+                  FlatButton(
+                    child: Text("Add ALL your time"),
+                    textColor: Colors.blue,
+                    onPressed: () {},
+                  )
+                ],
+              ),
             ),
           ),
           Column(
@@ -68,12 +88,12 @@ class MyHomePage extends StatelessWidget {
                           EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       decoration: BoxDecoration(
                           border: Border.all(
-                        color: Colors.pink.shade50,
+                        color: Colors.pink.shade100,
                         width: 2,
                       )),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        "¥ ${tx.amount}",
+                        "${tx.amount} /Hour",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -86,12 +106,11 @@ class MyHomePage extends StatelessWidget {
                         Text(
                           tx.title,
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                              fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          tx.date.toString(),
-                          style: TextStyle(
-                              fontSize: 10, color: Colors.grey.shade400),
+                          DateFormat.yMMMEd().add_jms().format(tx.date),
+                          style: TextStyle(fontSize: 12, color: Colors.grey),
                         ),
                       ],
                     )
