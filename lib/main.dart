@@ -43,6 +43,10 @@ class MyHomePage extends StatelessWidget {
     )
   ];
 
+  // ここでInput用のStringを用意しておく→onChangeへ
+  String titleInput;
+  String amountInput;
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -67,12 +71,26 @@ class MyHomePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  TextField(decoration: InputDecoration(labelText: "Title")),
-                  TextField(decoration: InputDecoration(labelText: "Amount")),
+                  TextField(
+                    decoration: InputDecoration(labelText: "Title"),
+                    // onChanged: (val) => titleInput = val でもおｋ
+                    onChanged: (val) {
+                      titleInput = val;
+                    },
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: "Amount"),
+                    onChanged: (val) {
+                      amountInput = val;
+                    },
+                  ),
                   FlatButton(
                     child: Text("Add ALL your time"),
                     textColor: Colors.blue,
-                    onPressed: () {},
+                    onPressed: () {
+                      print(titleInput);
+                      print(amountInput);
+                    },
                   )
                 ],
               ),
