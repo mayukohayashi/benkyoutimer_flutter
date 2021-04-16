@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter demoApp',
+      title: 'APPPPPPPPP',
       home: MyHomePage(),
     );
   }
@@ -21,7 +21,10 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("TIME App"),
+        title: Text("TIME"),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.home_outlined), onPressed: () {})
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -39,6 +42,10 @@ class MyHomePage extends StatelessWidget {
             UserTransactions()
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add_rounded),
+        onPressed: () {},
       ),
     );
   }
