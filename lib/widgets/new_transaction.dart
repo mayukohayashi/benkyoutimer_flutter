@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -54,7 +52,7 @@ class _NewTransactionState extends State<NewTransaction> {
             FlatButton(
               child: Text("Add ALL your time"),
               textColor: Colors.blue,
-              onPressed: () => submitData,
+              onPressed: submitData,
             )
           ],
         ),

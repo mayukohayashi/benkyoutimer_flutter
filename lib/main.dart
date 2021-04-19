@@ -13,7 +13,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'APPPPPPPPP',
-      theme: ThemeData(primarySwatch: Colors.red, accentColor: Colors.purple),
+      theme: ThemeData(
+          primarySwatch: Colors.red,
+          accentColor: Colors.purple,
+          fontFamily: "Quicksand",
+          textTheme: ThemeData.light().textTheme.copyWith(
+                title: TextStyle(
+                  fontFamily: "OpenSans",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+          appBarTheme: AppBarTheme(
+              textTheme: ThemeData.light().textTheme.copyWith(
+                  title: TextStyle(
+                      fontFamily: "OpenSans",
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold)))),
       home: MyHomePage(),
     );
   }
@@ -25,20 +41,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions = [
-    Transaction(
-      id: "t1",
-      title: "Flutter",
-      amount: 1.5,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t2",
-      title: "MTG",
-      amount: 1,
-      date: DateTime.now(),
-    ),
-  ];
+  final List<Transaction> _userTransactions = [];
 
   void _addNewTransaction(String txTitle, double txAmount) {
     final newTx = Transaction(
@@ -66,12 +69,16 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("TIME"),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.home_outlined), onPressed: () {})
+          IconButton(
+            icon: Icon(Icons.home_outlined),
+            onPressed: () => _startAddNewTransaction(context),
+          ),
         ],
       ),
       body: SingleChildScrollView(
