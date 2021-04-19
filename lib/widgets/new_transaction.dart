@@ -7,9 +7,7 @@ class NewTransaction extends StatefulWidget {
   NewTransaction(this.addTx);
 
   @override
-  _NewTransactionState createState() {
-    throw _NewTransactionState();
-  }
+  _NewTransactionState createState() => _NewTransactionState();
 }
 
 class _NewTransactionState extends State<NewTransaction> {
@@ -24,7 +22,10 @@ class _NewTransactionState extends State<NewTransaction> {
       return;
     }
 
-    widget.addTx(enteredTitle, enteredAmount);
+    widget.addTx(
+      enteredTitle,
+      enteredAmount,
+    );
 
     Navigator.of(context).pop();
   }
@@ -53,7 +54,7 @@ class _NewTransactionState extends State<NewTransaction> {
               child: Text("Add ALL your time"),
               textColor: Colors.blue,
               onPressed: submitData,
-            )
+            ),
           ],
         ),
       ),
