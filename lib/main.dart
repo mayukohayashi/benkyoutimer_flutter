@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'APPPPPPPPP',
       theme: ThemeData(
           primarySwatch: Colors.red,
-          accentColor: Colors.purple,
+          accentColor: Colors.red[200],
           fontFamily: "Quicksand",
           textTheme: ThemeData.light().textTheme.copyWith(
                 title: TextStyle(
@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
+                button: TextStyle(color: Colors.white),
               ),
           appBarTheme: AppBarTheme(
               textTheme: ThemeData.light().textTheme.copyWith(

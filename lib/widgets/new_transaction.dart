@@ -50,9 +50,24 @@ class _NewTransactionState extends State<NewTransaction> {
               keyboardType: TextInputType.numberWithOptions(decimal: true),
               onSubmitted: (_) => submitData(),
             ),
-            FlatButton(
+            Container(
+              height: 70,
+              child: Row(
+                children: <Widget>[
+                  Text("No Date Chosen"),
+                  FlatButton(
+                    textColor: Theme.of(context).primaryColor,
+                    child: Text("Select Date",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    onPressed: () {},
+                  )
+                ],
+              ),
+            ),
+            RaisedButton(
               child: Text("Add ALL your time"),
-              textColor: Colors.blue,
+              color: Theme.of(context).primaryColor,
+              textColor: Theme.of(context).textTheme.button.color,
               onPressed: submitData,
             ),
           ],
