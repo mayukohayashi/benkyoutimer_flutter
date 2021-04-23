@@ -40,14 +40,14 @@ class ChartBar extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
         SizedBox(
           height: 4,
         ),
-        Text(label)
+        Text(label),
       ],
     );
   }

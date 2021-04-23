@@ -15,8 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'APPPPPPPPP',
       theme: ThemeData(
-          primarySwatch: Colors.red[300r],
-          accentColor: Colors.red[200],
+          primarySwatch: Colors.green,
+          accentColor: Colors.green[300],
+          errorColor: Colors.red[200],
           fontFamily: "Quicksand",
           textTheme: ThemeData.light().textTheme.copyWith(
                 title: TextStyle(
@@ -48,16 +49,19 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Transaction> get _recentTransactions {
     return _userTransactions.where((tx) {
       return tx.date.isAfter(
-        DateTime.now().subtract(Duration(days: 7)),
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
       );
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount) {
+  void _addNewTransaction(
+      String txTitle, double txAmount, DateTime chosenDate) {
     final newTx = Transaction(
       title: txTitle,
       amount: txAmount,
-      date: DateTime.now(),
+      date: chosenDate,
       id: DateTime.now().toString(),
     );
 
@@ -83,11 +87,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("TIME"),
+        title: Text(
+          "TIME",
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.home_outlined),
-            onPressed: () {},
+            onPressed: () => _startAddNewTransaction(context),
           ),
         ],
       ),
@@ -101,6 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add_rounded),
         onPressed: () => _startAddNewTransaction(context),
