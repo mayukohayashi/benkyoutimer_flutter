@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'APPPPPPPPP',
       theme: ThemeData(
-          primarySwatch: Colors.red,
+          primarySwatch: Colors.red[300r],
           accentColor: Colors.red[200],
           fontFamily: "Quicksand",
           textTheme: ThemeData.light().textTheme.copyWith(
