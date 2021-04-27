@@ -44,7 +44,7 @@ class TransactionList extends StatelessWidget {
                     leading: CircleAvatar(
                       radius: 30,
                       child: Padding(
-                        padding: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(6),
                         child: FittedBox(
                           child: Text("${transactions[index].amount}/h"),
                         ),

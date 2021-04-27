@@ -28,11 +28,14 @@ class MyApp extends StatelessWidget {
                 button: TextStyle(color: Colors.white),
               ),
           appBarTheme: AppBarTheme(
-              textTheme: ThemeData.light().textTheme.copyWith(
+            textTheme: ThemeData.light().textTheme.copyWith(
                   title: TextStyle(
-                      fontFamily: "OpenSans",
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold)))),
+                    fontFamily: "OpenSans",
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+          )),
       home: MyHomePage(),
     );
   }
@@ -109,9 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            Expanded(
-              child: TransactionList(_userTransactions, _deleteTransaction),
-            ),
+            TransactionList(_userTransactions, _deleteTransaction),
           ],
         ),
       ),
