@@ -17,22 +17,23 @@ class TimeEntry {
   int get timeEntryId => _timeEntryId;
   DateTime get timeEntryDate => _timeEntryDate;
   double get timeEntrySpan => _timeEntrySpan;
+  String get timeEntryTitle => _timeEntryTitle;
 
-  // Map toMap() {
-  //   var map = new Map();
-  //   if (_id != null) {
-  //     map['id'] = _id;
-  //   }
-  //   map['title'] = _title;
-  //   map['description'] = _description;
+  Map toMap() {
+    var map = new Map();
 
-  //   return map;
-  // }
+    map['TimeEntryId'] = timeEntryId;
+    map['TimeEntryDate'] = _timeEntryDate;
+    map['TimeEntrySpan'] = _timeEntrySpan;
+    map['TimeEntryTitle'] = _timeEntryTitle;
 
-  // Note.fromMap(Map map) {
-  //   this._id = map['id'];
-  //   this._title = map['title'];
-  //   this._description = map['description'];
-  // }
+    return map;
+  }
 
+  TimeEntry.fromMap(Map map) {
+    this._timeEntryId = map['TimeEntryId'];
+    this._timeEntryDate = map['TimeEntryDate'];
+    this._timeEntrySpan = map['TimeEntrySpan'];
+    this._timeEntryTitle = map['TimeEntryTitle'];
+  }
 }
