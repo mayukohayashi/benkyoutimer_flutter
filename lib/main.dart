@@ -6,10 +6,8 @@ import './widgets/transaction_list.dart';
 import './widgets/chart.dart';
 import './models/transaction.dart';
 
-import './models/timeEntry.dart';
-import './util/database_helper.dart';
 
-void main() async {
+void main()  {
   runApp(MyApp());
 }
 
