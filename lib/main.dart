@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 import './widgets/new_transaction.dart';
@@ -5,7 +6,13 @@ import './widgets/transaction_list.dart';
 import './widgets/chart.dart';
 import './models/transaction.dart';
 
-void main() => runApp(MyApp());
+import './models/timeEntry.dart';
+import './util/database_helper.dart';
+
+void main() async {
+  runApp(MyApp());
+}
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -134,3 +141,43 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+  // Future main() async {
+  //   List timeEntries;
+  //   var db = new DatabaseHelper();
+
+  //   await db.saveTime(new TimeEntry(001, DateTime.now(), 3.5, "test0"));
+  //   await db.saveTime(new TimeEntry(002, DateTime.now(), 1.5, "test1"));
+  //   await db.saveTime(new TimeEntry(003, DateTime.now(), 5.5, "test2"));
+
+  //   print('=== getAllTimeEntry() ===');
+  //   timeEntries = await db.getAllTimes();
+  //   timeEntries.forEach((timeEntry) => print(timeEntry));
+
+  //   int count = await db.getCount();
+  //   print('Count: $count');
+
+  //   print('=== getTimeEntry(2) ===');
+  //   TimeEntry timeEntry = await db.getTime(2);
+  //   print(timeEntry.toMap());
+
+  //   print('=== updateNote[id:003] ===');
+  //   TimeEntry updatedTime = TimeEntry.fromMap({
+  //     'TimeEntryId': 003,
+  //     'TimeEntryDate': DateTime.now(),
+  //     'TimeEntrySpan': 3.7,
+  //     'TimeEntryTitle': 'testttttt'
+  //   });
+  //   await db.updateTime(updatedTime);
+
+  //   timeEntries = await db.getAllTimes();
+  //   timeEntries.forEach((timeEntry) => print(timeEntry));
+
+  //   print('=== deleteNote(2) ===');
+  //   await db.deleteTime(002);
+  //   timeEntries = await db.getAllTimes();
+  //   timeEntries.forEach((timeEntry) => print(timeEntry));
+
+  //   await db.close();
+  // }
+
